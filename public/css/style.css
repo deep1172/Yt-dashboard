@@ -1,0 +1,118 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+/* Headings */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h3 {
+  margin: 16px 0 10px;
+}
+
+/* Inputs and Buttons */
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d62828;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Notes */
+.note {
+  background-color: #f1f3f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.note .meta {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Comments */
+.comment {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.comment .reply {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* Video Section */
+.video-details {
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.video-details strong {
+  display: inline-block;
+  width: 100px;
+  color: #495057;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  input, textarea, button {
+    font-size: 0.95rem;
+  }
+}

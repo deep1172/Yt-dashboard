@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Companion Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>YouTube Companion Dashboard</h1>
+  <div id="videoDetails"></div>
+
+  <form id="commentForm">
+    <input type="text" placeholder="Add comment" id="commentInput" required>
+    <button type="submit">Post Comment</button>
+  </form>
+
+  <form id="noteForm">
+    <textarea placeholder="Note..." id="noteInput"></textarea>
+    <input type="text" placeholder="Tags (comma separated)" id="tagInput">
+    <button type="submit">Add Note</button>
+  </form>
+
+  <input type="text" placeholder="Search notes" id="searchInput">
+
+  <div id="notesList"></div>
+  <script src="/js/main.js"></script>
+</body>
+</html>
