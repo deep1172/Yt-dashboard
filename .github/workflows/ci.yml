@@ -39,26 +39,33 @@ jobs:
     runs-on: ubuntu-latest
     needs: security-scan 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
       - name: Run SonarQube Scan
         env:
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          
         run: |
           npx sonar-scanner \
-            -Dsonar.projectKey=Yt-dashboard \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=${{ vars.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.projectKey=Yt-dashboard \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=${{ vars.SONAR_HOST_URL }} \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       - name: Wait for SonarQube analysis to complete
-        run: sleep 30  
+        run: sleep 30
 
       - name: Get SonarQube Quality Gate Status
         id: qualitygate
         uses: sonarsource/sonarqube-quality-gate-action@master
+        env:
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
-          sonar-host-url: ${{ vars.SONAR_HOST_URL }}
+          scanMetadataReportFile: .scannerwork/report-task.txt
+          pollingTimeoutSec: 300
 
       - name: Check quality gate result
         run: |
@@ -67,5 +74,5 @@ jobs:
             echo "❌ Build failed due to SonarQube quality gate failure"
             exit 1
           else
-            echo "✅ scanning Done... passed quality gate"
+            echo "✅ Scanning done... passed quality gate"
           fi
