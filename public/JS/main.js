@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ content, tags })
     });
-    const note = await res.json();
+    await res.json();
     alert('Note added!');
   });
 
