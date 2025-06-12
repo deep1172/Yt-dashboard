@@ -7,6 +7,7 @@ const apiRoutes = require('./routes/api');
 dotenv.config();
 
 const app = express();
+app.disable('x-powered-by'); // prevent fingerprinting
 app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
